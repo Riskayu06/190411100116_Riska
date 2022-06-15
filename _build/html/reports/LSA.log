@@ -1,0 +1,94 @@
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python38-32\lib\site-packages\jupyter_cache\executors\utils.py", line 51, in single_nb_execution
+    executenb(
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python38-32\lib\site-packages\nbclient\client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python38-32\lib\site-packages\nbclient\util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python38-32\lib\site-packages\nbclient\util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python38-32\lib\asyncio\base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python38-32\lib\site-packages\nbclient\client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python38-32\lib\site-packages\nbclient\client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python38-32\lib\site-packages\nbclient\client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+df=pd.read_csv('techno.csv')
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mFileNotFoundError[0m                         Traceback (most recent call last)
+Input [1;32mIn [2][0m, in [0;36m<cell line: 1>[1;34m()[0m
+[1;32m----> 1[0m df[38;5;241m=[39m[43mpd[49m[38;5;241;43m.[39;49m[43mread_csv[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mtechno.csv[39;49m[38;5;124;43m'[39;49m[43m)[49m
+
+File [1;32m~\AppData\Local\Programs\Python\Python38-32\lib\site-packages\pandas\io\parsers.py:605[0m, in [0;36mread_csv[1;34m(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)[0m
+[0;32m    600[0m kwds_defaults [38;5;241m=[39m _refine_defaults_read(
+[0;32m    601[0m     dialect, delimiter, delim_whitespace, engine, sep, defaults[38;5;241m=[39m{[38;5;124m"[39m[38;5;124mdelimiter[39m[38;5;124m"[39m: [38;5;124m"[39m[38;5;124m,[39m[38;5;124m"[39m}
+[0;32m    602[0m )
+[0;32m    603[0m kwds[38;5;241m.[39mupdate(kwds_defaults)
+[1;32m--> 605[0m [38;5;28;01mreturn[39;00m [43m_read[49m[43m([49m[43mfilepath_or_buffer[49m[43m,[49m[43m [49m[43mkwds[49m[43m)[49m
+
+File [1;32m~\AppData\Local\Programs\Python\Python38-32\lib\site-packages\pandas\io\parsers.py:457[0m, in [0;36m_read[1;34m(filepath_or_buffer, kwds)[0m
+[0;32m    454[0m _validate_names(kwds[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mnames[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m))
+[0;32m    456[0m [38;5;66;03m# Create the parser.[39;00m
+[1;32m--> 457[0m parser [38;5;241m=[39m [43mTextFileReader[49m[43m([49m[43mfilepath_or_buffer[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwds[49m[43m)[49m
+[0;32m    459[0m [38;5;28;01mif[39;00m chunksize [38;5;129;01mor[39;00m iterator:
+[0;32m    460[0m     [38;5;28;01mreturn[39;00m parser
+
+File [1;32m~\AppData\Local\Programs\Python\Python38-32\lib\site-packages\pandas\io\parsers.py:814[0m, in [0;36mTextFileReader.__init__[1;34m(self, f, engine, **kwds)[0m
+[0;32m    811[0m [38;5;28;01mif[39;00m [38;5;124m"[39m[38;5;124mhas_index_names[39m[38;5;124m"[39m [38;5;129;01min[39;00m kwds:
+[0;32m    812[0m     [38;5;28mself[39m[38;5;241m.[39moptions[[38;5;124m"[39m[38;5;124mhas_index_names[39m[38;5;124m"[39m] [38;5;241m=[39m kwds[[38;5;124m"[39m[38;5;124mhas_index_names[39m[38;5;124m"[39m]
+[1;32m--> 814[0m [38;5;28mself[39m[38;5;241m.[39m_engine [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_make_engine[49m[43m([49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mengine[49m[43m)[49m
+
+File [1;32m~\AppData\Local\Programs\Python\Python38-32\lib\site-packages\pandas\io\parsers.py:1045[0m, in [0;36mTextFileReader._make_engine[1;34m(self, engine)[0m
+[0;32m   1041[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(
+[0;32m   1042[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mUnknown engine: [39m[38;5;132;01m{[39;00mengine[38;5;132;01m}[39;00m[38;5;124m (valid options are [39m[38;5;132;01m{[39;00mmapping[38;5;241m.[39mkeys()[38;5;132;01m}[39;00m[38;5;124m)[39m[38;5;124m"[39m
+[0;32m   1043[0m     )
+[0;32m   1044[0m [38;5;66;03m# error: Too many arguments for "ParserBase"[39;00m
+[1;32m-> 1045[0m [38;5;28;01mreturn[39;00m [43mmapping[49m[43m[[49m[43mengine[49m[43m][49m[43m([49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mf[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[43m)[49m
+
+File [1;32m~\AppData\Local\Programs\Python\Python38-32\lib\site-packages\pandas\io\parsers.py:1862[0m, in [0;36mCParserWrapper.__init__[1;34m(self, src, **kwds)[0m
+[0;32m   1859[0m kwds[[38;5;124m"[39m[38;5;124musecols[39m[38;5;124m"[39m] [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39musecols
+[0;32m   1861[0m [38;5;66;03m# open handles[39;00m
+[1;32m-> 1862[0m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_open_handles[49m[43m([49m[43msrc[49m[43m,[49m[43m [49m[43mkwds[49m[43m)[49m
+[0;32m   1863[0m [38;5;28;01massert[39;00m [38;5;28mself[39m[38;5;241m.[39mhandles [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m
+[0;32m   1864[0m [38;5;28;01mfor[39;00m key [38;5;129;01min[39;00m ([38;5;124m"[39m[38;5;124mstorage_options[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mencoding[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mmemory_map[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mcompression[39m[38;5;124m"[39m):
+
+File [1;32m~\AppData\Local\Programs\Python\Python38-32\lib\site-packages\pandas\io\parsers.py:1357[0m, in [0;36mParserBase._open_handles[1;34m(self, src, kwds)[0m
+[0;32m   1353[0m [38;5;28;01mdef[39;00m [38;5;21m_open_handles[39m([38;5;28mself[39m, src: FilePathOrBuffer, kwds: Dict[[38;5;28mstr[39m, Any]) [38;5;241m-[39m[38;5;241m>[39m [38;5;28;01mNone[39;00m:
+[0;32m   1354[0m     [38;5;124;03m"""[39;00m
+[0;32m   1355[0m [38;5;124;03m    Let the readers open IOHanldes after they are done with their potential raises.[39;00m
+[0;32m   1356[0m [38;5;124;03m    """[39;00m
+[1;32m-> 1357[0m     [38;5;28mself[39m[38;5;241m.[39mhandles [38;5;241m=[39m [43mget_handle[49m[43m([49m
+[0;32m   1358[0m [43m        [49m[43msrc[49m[43m,[49m
+[0;32m   1359[0m [43m        [49m[38;5;124;43m"[39;49m[38;5;124;43mr[39;49m[38;5;124;43m"[39;49m[43m,[49m
+[0;32m   1360[0m [43m        [49m[43mencoding[49m[38;5;241;43m=[39;49m[43mkwds[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mencoding[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mNone[39;49;00m[43m)[49m[43m,[49m
+[0;32m   1361[0m [43m        [49m[43mcompression[49m[38;5;241;43m=[39;49m[43mkwds[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mcompression[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mNone[39;49;00m[43m)[49m[43m,[49m
+[0;32m   1362[0m [43m        [49m[43mmemory_map[49m[38;5;241;43m=[39;49m[43mkwds[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mmemory_map[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mFalse[39;49;00m[43m)[49m[43m,[49m
+[0;32m   1363[0m [43m        [49m[43mstorage_options[49m[38;5;241;43m=[39;49m[43mkwds[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mstorage_options[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mNone[39;49;00m[43m)[49m[43m,[49m
+[0;32m   1364[0m [43m    [49m[43m)[49m
+
+File [1;32m~\AppData\Local\Programs\Python\Python38-32\lib\site-packages\pandas\io\common.py:639[0m, in [0;36mget_handle[1;34m(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)[0m
+[0;32m    634[0m [38;5;28;01melif[39;00m [38;5;28misinstance[39m(handle, [38;5;28mstr[39m):
+[0;32m    635[0m     [38;5;66;03m# Check whether the filename is to be opened in binary mode.[39;00m
+[0;32m    636[0m     [38;5;66;03m# Binary mode does not support 'encoding' and 'newline'.[39;00m
+[0;32m    637[0m     [38;5;28;01mif[39;00m ioargs[38;5;241m.[39mencoding [38;5;129;01mand[39;00m [38;5;124m"[39m[38;5;124mb[39m[38;5;124m"[39m [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m ioargs[38;5;241m.[39mmode:
+[0;32m    638[0m         [38;5;66;03m# Encoding[39;00m
+[1;32m--> 639[0m         handle [38;5;241m=[39m [38;5;28;43mopen[39;49m[43m([49m
+[0;32m    640[0m [43m            [49m[43mhandle[49m[43m,[49m
+[0;32m    641[0m [43m            [49m[43mioargs[49m[38;5;241;43m.[39;49m[43mmode[49m[43m,[49m
+[0;32m    642[0m [43m            [49m[43mencoding[49m[38;5;241;43m=[39;49m[43mioargs[49m[38;5;241;43m.[39;49m[43mencoding[49m[43m,[49m
+[0;32m    643[0m [43m            [49m[43merrors[49m[38;5;241;43m=[39;49m[43merrors[49m[43m,[49m
+[0;32m    644[0m [43m            [49m[43mnewline[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43m"[39;49m[43m,[49m
+[0;32m    645[0m [43m        [49m[43m)[49m
+[0;32m    646[0m     [38;5;28;01melse[39;00m:
+[0;32m    647[0m         [38;5;66;03m# Binary mode[39;00m
+[0;32m    648[0m         handle [38;5;241m=[39m [38;5;28mopen[39m(handle, ioargs[38;5;241m.[39mmode)
+
+[1;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'techno.csv'
+FileNotFoundError: [Errno 2] No such file or directory: 'techno.csv'
+
